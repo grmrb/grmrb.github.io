@@ -58,7 +58,7 @@
       <link href="/2023/02/10/%E5%8A%A0%E5%9B%9B%E4%B8%AA/"/>
       <url>/2023/02/10/%E5%8A%A0%E5%9B%9B%E4%B8%AA/</url>
       
-        <content type="html"><![CDATA[<h1 id="加四个"><a href="#加四个" class="headerlink" title="加四个"></a>加四个</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="加四个"><a href="#加四个" class="headerlink" title="加四个"></a>加四个</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
