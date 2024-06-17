@@ -4,38 +4,25 @@
   
     
     <entry>
-      <title>你好，小兜兜</title>
-      <link href="/2024/06/17/%E7%BB%8F%E6%B5%8E/%E5%9C%B0%E6%96%B9%E6%94%BF%E6%B2%BB%E5%92%8C%E7%BB%8F%E6%B5%8E/"/>
-      <url>/2024/06/17/%E7%BB%8F%E6%B5%8E/%E5%9C%B0%E6%96%B9%E6%94%BF%E6%B2%BB%E5%92%8C%E7%BB%8F%E6%B5%8E/</url>
+      <title>重新开始</title>
+      <link href="/2024/06/17/today_start/"/>
+      <url>/2024/06/17/today_start/</url>
       
-        <content type="html"><![CDATA[<h1 id="地方政治和经济"><a href="#地方政治和经济" class="headerlink" title="地方政治和经济"></a>地方政治和经济</h1><ul><li>初步测试下</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h1><h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><ul><li>现在遇到了瓶颈，什么东西都懂一些，但是是否能表达的前后连贯，让人看的饱满，这块欠缺。</li></ul>]]></content>
       
       
       <categories>
           
-          <category> 感想 </category>
+          <category> 生活 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 思想的 </tag>
+            <tag> 感想 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2023/03/09/redis/redis%E6%89%A7%E8%A1%8C/"/>
-      <url>/2023/03/09/redis/redis%E6%89%A7%E8%A1%8C/</url>
-      
-        <content type="html"><![CDATA[<h1 id="redis执行"><a href="#redis执行" class="headerlink" title="redis执行"></a>redis执行</h1><ul><li>执行前的准备</li></ul><blockquote><p>① 判断是否为退出命令，如果是则直接返回；<br>② 非 null 判断，检查 client 对象是否为 null，如果是返回错误信息；<br>③ 获取执行命令，根据 client 对象存储的属性信息去 redisCommand 结构中查询执行命令；<br>④ 用户权限效验，未通过身份验证的客户端只能执行 AUTH(授权) 命令，未通过身份验证的客户端执行了 AUTH 之外的命令则返回错误信息；<br>⑤ 集群相关操作，如果是集群模式，把命令重定向到目标节点，如果是 master(主节点) 则不需要重定向；<br>⑥ 检查服务器端最大内存限制，如果服务器端开启了最大内存限制，会先检查内存大小，如果内存超过了最大值会对内存进行回收操作；<br>⑦ 持久化检测，检查服务器是否开启了持久化和持久化出错停止写入配置，如果开启了此配置并且有持久化失败的情况，禁止执行写命令；<br>⑧ 集群模式最少从节点(slave)验证，如果是集群模式并且配置了 replminslavestowrite(最小从节点写入)，当从节点的数量少于配置项时，禁止执行写命令；<br>⑨ 只读从节点验证，当此服务器为只读从节点时，只接受 master 的写命令；<br>⑩ 客户端订阅判断，当客户端正在订阅频道时，只会执行部分命令（只会执行 SUBSCRIBE、PSUBSCRIBE、UNSUBSCRIBE、PUNSUBSCRIBE，其他命令都会被拒绝）。<br>⑪ 从节点状态效验，当服务器为 slave 并且没有连接 master 时，只会执行状态查询相关的命令，如 info 等；<br>⑫ 服务器初始化效验，当服务器正在启动时，只会执行 loading 标志的命令，其他的命令都会被拒绝；<br>⑬ lua 脚本阻塞效验，当服务器因为执行 lua 脚本阻塞时，只会执行部分命令；<br>⑭ 事务命令效验，如果执行的是事务命令，则开启事务把命令放入等待队列；<br>⑮ 监视器 (monitor) 判断，如果服务器打开了监视器功能，那么服务器也会把执行命令和相关参数发送给监视器 (监视器是用于监控服务器运行状态的)。</p></blockquote>]]></content>
-      
-      
       
     </entry>
     
@@ -84,31 +71,6 @@
         <tags>
             
             <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>你好，小兜兜</title>
-      <link href="/2022/01/01/hello-world/"/>
-      <url>/2022/01/01/hello-world/</url>
-      
-        <content type="html"><![CDATA[<h3 id="原来是你"><a href="#原来是你" class="headerlink" title="原来是你"></a>原来是你</h3><p>你好，小兜兜，你是最靓的仔！爸爸爱你。</p><span id="more"></span><p>天天都在玩耍，天天都在拉稀，改变了我的生活，改变了我的态度，改变了我的情绪，你就是我的小天使。</p><h3 id="刚生下的样子"><a href="#刚生下的样子" class="headerlink" title="刚生下的样子"></a>刚生下的样子</h3><p>迄今为止最可爱的仔（beautiful boy）<br><img src="/image/oneMonth.png" alt="那时候的你"></p><p><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/yank-note-picgo-img-20230226105131.png" alt="就是测试下"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="现在的可爱样子"><a href="#现在的可爱样子" class="headerlink" title="现在的可爱样子"></a>现在的可爱样子</h3><p>可爱样子如下：<br><img src="/image/now8.png"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 兜兜 </tag>
             
         </tags>
       
