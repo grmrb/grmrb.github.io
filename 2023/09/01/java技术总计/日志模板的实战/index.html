@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>基于注解的日志记录实战 | 落小姐</title><meta name="author" content="兜兜"><meta name="copyright" content="兜兜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于注解的日志记录实战与反思">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于注解的日志记录实战">
+<meta property="og:url" content="http://renbiao.top/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="落小姐">
+<meta property="og:description" content="基于注解的日志记录实战与反思">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/grmrb/pictures/master/img/hot-surface-306922_1280.png">
+<meta property="article:published_time" content="2023-09-01T04:20:00.000Z">
+<meta property="article:modified_time" content="2024-07-10T07:43:01.485Z">
+<meta property="article:author" content="兜兜">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grmrb/pictures/master/img/hot-surface-306922_1280.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://renbiao.top/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于注解的日志记录实战',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-10 15:43:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261807998.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/%E5%BD%92%E6%A1%A3/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-music"></i><span> 友情链接</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/grmrb/pictures/master/img/hot-surface-306922_1280.png')"><nav id="nav"><span id="blog-info"><a href="/" title="落小姐"><span class="site-name">落小姐</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-music"></i><span> 友情链接</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于注解的日志记录实战</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-01T04:20:00.000Z" title="发表于 2023-09-01 12:20:00">2023-09-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-10T07:43:01.485Z" title="更新于 2024-07-10 15:43:01">2024-07-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><pre><code>1、后端的核心链路的日志，如 订单的增删改，优惠券的增删改，活动等的操作，都需要记录日志在数据库表中，方便后续审计核查。
+2、那这块的日志统一管理起来，采用注解形式来实现呢？
+</code></pre>
+<h1 id="二、技术分析"><a href="#二、技术分析" class="headerlink" title="二、技术分析"></a>二、技术分析</h1><p>1、AOP：既然确定了注解形式，那肯定离不开aop 切面拦截<br>2、SpEL：基于注解解析日志，使用spring 的表达式框架，动态获取上下文来填充日志。<br>3、java反射：自定义函数的解析与执行</p>
+<h1 id="三、实现分析"><a href="#三、实现分析" class="headerlink" title="三、实现分析"></a>三、实现分析</h1><p>1、AOP 首先获取注解的信息。封装成一个日志模板，该模板可以支持<big>动态数据库获取信息</big>，也可以<big>支持SPEL</big> 表达式获取上下文信息<br>2、采用stack 的数据结构，来判断和解析模板。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public static BraceResult findBraceResult(String content) &#123;</span><br><span class="line">        // 找到第一个&quot;&#123;&quot;</span><br><span class="line">        int leftBraceIndex = content.indexOf(&quot;&#123;&quot;);</span><br><span class="line">        int matchedRightBraceIndex = -1;</span><br><span class="line">        if(leftBraceIndex&lt;0) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        // stack用于处理第一个&quot;&#123;&quot;右边可能出现的&quot;&#123;&quot;</span><br><span class="line">        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        stack.push(&#x27;&#123;&#x27;);</span><br><span class="line">        // 从第一个&quot;&#123;&quot;开始遍历，找到其匹配的&quot;&#125;&quot;的index</span><br><span class="line">        for(int i=leftBraceIndex+1;i&lt;content.length();i++) &#123;</span><br><span class="line">            // 第一个&quot;&#123;&quot;的右边还可能有&quot;&#123;&quot;</span><br><span class="line">            if(content.charAt(i) == &#x27;&#123;&#x27;) &#123;</span><br><span class="line">                stack.push(&#x27;&#123;&#x27;);</span><br><span class="line">            &#125;</span><br><span class="line">            if(content.charAt(i) == &#x27;&#125;&#x27;) &#123;</span><br><span class="line">                // 遇到&quot;&#125;&quot;，栈中的&quot;&#123;&quot;就需要弹出一个</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            if(stack.isEmpty()) &#123;</span><br><span class="line">                // 当栈空了，说明我们要找的和第一个&quot;&#123;&quot;匹配的&quot;&#125;&quot;就找到了</span><br><span class="line">                matchedRightBraceIndex = i;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // 没有找到相匹配的&quot;&#125;&quot;</span><br><span class="line">        if(matchedRightBraceIndex == -1) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        String betweenBraceContent = content.substring(leftBraceIndex + 1 ,matchedRightBraceIndex);</span><br><span class="line">        return new BraceResult(leftBraceIndex,matchedRightBraceIndex,betweenBraceContent);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>3、<details><summary>封装自定义函数，后续基于反射，来执行自定义函数，该处的量亮点在于，可以从json结果集中获取信息，也可以使用spel 获取填充信息</summary></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">private IExpression parseExpression(String content) &#123;</span><br><span class="line">       BraceResult braceResult = BraceUtils.findBraceResult(content);</span><br><span class="line">       if (null != braceResult) &#123;</span><br><span class="line">           // 自定义函数</span><br><span class="line">           String classAndFunctionName = content.substring(0, braceResult.getLeftBraceIndex());</span><br><span class="line">		String className = classAndFunctionName.substring(0, classAndFunctionName.indexOf(&quot;.&quot;));</span><br><span class="line">		String functionName = classAndFunctionName.substring(classAndFunctionName.indexOf(&quot;.&quot;) +1);</span><br><span class="line">           String input = content.substring(braceResult.getLeftBraceIndex() + 1, braceResult.getMatchedRightBraceIndex());</span><br><span class="line">		String jsonKey = null;</span><br><span class="line">		if(content.length() != braceResult.getMatchedRightBraceIndex() + 1) &#123;</span><br><span class="line">			jsonKey = content.substring(braceResult.getMatchedRightBraceIndex() + 2);</span><br><span class="line">		&#125;</span><br><span class="line">		return new FunctionWithJSONTemplate(className,functionName, new FuncInput(input), jsonKey);</span><br><span class="line">       &#125;</span><br><span class="line">	else &#123;</span><br><span class="line">           // SpEl表达式</span><br><span class="line">           return new SpELTemplate(content);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public class FunctionWithJSONTemplate implements IExpression &#123;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 自定义类名称</span><br><span class="line"> */</span><br><span class="line">private String className;</span><br><span class="line"></span><br><span class="line">   /**</span><br><span class="line">    * 自定义函数名称</span><br><span class="line">    */</span><br><span class="line">   private String functionName;</span><br><span class="line"></span><br><span class="line">   /**</span><br><span class="line">    * 自定义函数入参</span><br><span class="line">    */</span><br><span class="line">   private FuncInput input;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * json key</span><br><span class="line"> */</span><br><span class="line">private String jsonKey;</span><br><span class="line"></span><br><span class="line">   @Override</span><br><span class="line">   public String execute(Object result,ProceedingJoinPoint point,</span><br><span class="line">                         OperateLogExpressionEvaluator expressionEvaluator,</span><br><span class="line">                         IFunctionService iFunctionService) &#123;</span><br><span class="line"></span><br><span class="line">       Object value = null;</span><br><span class="line">       if(input.isSpEl()) &#123;</span><br><span class="line">           //执行SpEL</span><br><span class="line">           value = expressionEvaluator.executeObjectExpression(result,point, input.getInput());</span><br><span class="line">       &#125;</span><br><span class="line">       else &#123;</span><br><span class="line">           value = input.getInput();</span><br><span class="line">       &#125;</span><br><span class="line">	String functionResult = iFunctionService.apply(className,functionName,value);</span><br><span class="line">	if(JSONObject.isValidObject(functionResult))&#123;</span><br><span class="line">		JSONObject jsonObj = JSON.parseObject(functionResult);</span><br><span class="line">		return jsonObj.getString(jsonKey);</span><br><span class="line">	&#125;</span><br><span class="line">	return functionResult;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<h1 id="四、使用注意事项"><a href="#四、使用注意事项" class="headerlink" title="四、使用注意事项"></a>四、使用注意事项</h1><h2 id="对于RT要求高的场景"><a href="#对于RT要求高的场景" class="headerlink" title="对于RT要求高的场景"></a>对于RT要求高的场景</h2><p>（1）建议不要使用自定义函数，<br>（2）最后的日志处理，改成异步发kafka消息。</p>
+<h2 id="对于想使用自定义函数"><a href="#对于想使用自定义函数" class="headerlink" title="对于想使用自定义函数"></a>对于想使用自定义函数</h2><p>（1）有一类场景，如日志模板为 【订单状态从 xxxa 更改为 xxxb】，<br> 那该类日志的方法必须是在事务内，否则方法执行完，就是提交状态，自定义函数获取的是事务提交后的信息</p>
+<h1 id="五、详细实现"><a href="#五、详细实现" class="headerlink" title="五、详细实现"></a>五、详细实现</h1><h2 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h2><details><summary>(1)解析操作日志模板和表达式，封装成日志模板</summary>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">private LogTemplateResult parseOperateLog(Object result,ProceedingJoinPoint point, OperateLog operateLog) &#123;</span><br><span class="line"></span><br><span class="line">      String operator = null;</span><br><span class="line">      String bizNo = null;</span><br><span class="line">String bizType = operateLog.bizType();</span><br><span class="line"></span><br><span class="line">      // 解析业务编码</span><br><span class="line">      bizNo = expressionEvaluator.executeStringExpression(result,point, operateLog.bizNo());</span><br><span class="line">      if (StringUtils.isEmpty(bizNo)) &#123;</span><br><span class="line">	LOGGER.warn(&quot;bizNo is empty, please check your bizNo expression&quot;);</span><br><span class="line">         throw new UnsupportedOperationException(&quot;bizNo cannot be empty!!&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">      // 解析日志模板和表达式</span><br><span class="line">      LogTemplateResult logTemplateResult = parseLogTemplateResult(operateLog.content());</span><br><span class="line">      // 解析操作人</span><br><span class="line">      operator = expressionEvaluator.executeStringExpression(result,point, operateLog.operator());</span><br><span class="line"></span><br><span class="line">      logTemplateResult.setOperateLog(operateLog);</span><br><span class="line">      logTemplateResult.setBizNo(bizNo);</span><br><span class="line">      logTemplateResult.setOperator(operator);</span><br><span class="line">logTemplateResult.setBizType(bizType);</span><br><span class="line">      logTemplateResult.setPoint(point);</span><br><span class="line"></span><br><span class="line">      return logTemplateResult;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+  <details><summary>(2)执行表达式并填充日志模板占位符</summary>
+
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">private OperateLogInstance executeExpressionAndFillPlaceholder(Object result,LogTemplateResult logTemplateResult) &#123;</span><br><span class="line">      String logContent = null;</span><br><span class="line">      ProceedingJoinPoint point = logTemplateResult.getPoint();</span><br><span class="line">      OperateLog operateLog = logTemplateResult.getOperateLog();</span><br><span class="line"></span><br><span class="line">      // 如果日志LogContentTemplate里面包含表达式的话</span><br><span class="line">      if (logTemplateResult.isHasExpression()) &#123;</span><br><span class="line">          String logContentTemplate = logTemplateResult.getContentTemplate();</span><br><span class="line">          List&lt;String&gt; expressionResult = new ArrayList&lt;&gt;();</span><br><span class="line">          // 执行自定义函数</span><br><span class="line">          for (IExpression expression : logTemplateResult.getExpressions()) &#123;</span><br><span class="line">              // 保存执行的结果</span><br><span class="line">              expressionResult.add(expression.execute(result,point, expressionEvaluator, iFunctionService));</span><br><span class="line">          &#125;</span><br><span class="line">          // 构造最终的日志content</span><br><span class="line">          logContent = String.format(logContentTemplate, expressionResult.toArray(new String[expressionResult.size()]));</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          // 普通logContent</span><br><span class="line">          logContent = operateLog.content();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      // 构造操作日志实例</span><br><span class="line">      return OperateLogInstance.builder()</span><br><span class="line">              .bizNo(logTemplateResult.getBizNo())</span><br><span class="line">              .operator(logTemplateResult.getOperator())</span><br><span class="line">	    .bizType(logTemplateResult.getBizType())</span><br><span class="line">              .logContent(logContent)</span><br><span class="line">              .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </details>
+  <details><summary>(3)存储操作日志，需要业务方自行定义</summary>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public interface OperateLogStoreService &#123;</span><br><span class="line">  /**</span><br><span class="line">   * 存储操作日志</span><br><span class="line">   */</span><br><span class="line">  void storeOperateLog(OperateLogInstance instance) throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </details>
+
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/IParseFunction.png" alt="涉及到的类"></p>
+<h2 id="UML时序图"><a href="#UML时序图" class="headerlink" title="UML时序图"></a>UML时序图</h2><p><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A120240710-150453@2x.png" alt="时序图1"><br><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A120240710-150507@2x.png" alt="时序图2"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://renbiao.top">兜兜</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://renbiao.top/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/">http://renbiao.top/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://renbiao.top" target="_blank">落小姐</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261900040.png" target="_blank"><img class="post-qr-code-img" src="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261900040.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261902234.png" target="_blank"><img class="post-qr-code-img" src="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261902234.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/dubbo%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" title="dubbo负载均衡实战"><img class="cover" src="https://raw.githubusercontent.com/grmrb/pictures/master/img/istockphoto-1505954018-612x612.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">dubbo负载均衡实战</div></div></a></div><div class="next-post pull-right"><a href="/2023/08/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/" title="多线程实战与总结"><img class="cover" src="https://img-wljslmz-1259086031.cos.ap-nanjing.myqcloud.com/picgo/202304250944799.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">多线程实战与总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/dubbo%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" title="dubbo负载均衡实战"><img class="cover" src="https://raw.githubusercontent.com/grmrb/pictures/master/img/istockphoto-1505954018-612x612.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">dubbo负载均衡实战</div></div></a></div><div><a href="/2023/08/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/" title="多线程实战与总结"><img class="cover" src="https://img-wljslmz-1259086031.cos.ap-nanjing.myqcloud.com/picgo/202304250944799.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-01</div><div class="title">多线程实战与总结</div></div></a></div><div><a href="/2023/05/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E6%80%BB%E7%BB%93/" title="IO多路复用"><img class="cover" src="https://raw.githubusercontent.com/grmrb/pictures/master/img/tunnel-3233082_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-01</div><div class="title">IO多路复用</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81ODA5Ni8zNDU1OQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/202302261807998.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">兜兜</div><div class="author-info__description">记录美好生活</div></div><div class="card-info-data site-data is-center"><a href="/%E5%BD%92%E6%A1%A3/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/grmrb/grmrb.github.io"><i class="fab fa-github"></i><span>一起学习</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/grmrb" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:renluoluo999@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">积沙成塔 集腋成裘 强文博识 俯瞰众生</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">二、技术分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">三、实现分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">四、使用注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8ERT%E8%A6%81%E6%B1%82%E9%AB%98%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-number">4.1.</span> <span class="toc-text">对于RT要求高的场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E6%83%B3%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">对于想使用自定义函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">五、详细实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B"><span class="toc-number">5.1.</span> <span class="toc-text">核心流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE"><span class="toc-number">5.2.</span> <span class="toc-text">类图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UML%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="toc-number">5.3.</span> <span class="toc-text">UML时序图</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/07/02/%E8%AF%BB%E4%B9%A6%E6%84%9F%E6%82%9F/%E7%86%B5%E5%87%8F%E8%A1%8C%E5%8A%A8/" title="熵减行动"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/bell-peppers-1302126_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="熵减行动"/></a><div class="content"><a class="title" href="/2024/07/02/%E8%AF%BB%E4%B9%A6%E6%84%9F%E6%82%9F/%E7%86%B5%E5%87%8F%E8%A1%8C%E5%8A%A8/" title="熵减行动">熵减行动</a><time datetime="2024-07-02T04:20:00.000Z" title="发表于 2024-07-02 12:20:00">2024-07-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/17/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/today_start/" title="重新开始"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/a.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="重新开始"/></a><div class="content"><a class="title" href="/2024/06/17/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/today_start/" title="重新开始">重新开始</a><time datetime="2024-06-17T04:20:00.000Z" title="发表于 2024-06-17 12:20:00">2024-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/dubbo%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" title="dubbo负载均衡实战"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/istockphoto-1505954018-612x612.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="dubbo负载均衡实战"/></a><div class="content"><a class="title" href="/2023/10/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/dubbo%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E4%BD%BF%E7%94%A8/" title="dubbo负载均衡实战">dubbo负载均衡实战</a><time datetime="2023-10-01T04:20:00.000Z" title="发表于 2023-10-01 12:20:00">2023-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/" title="基于注解的日志记录实战"><img src="https://raw.githubusercontent.com/grmrb/pictures/master/img/hot-surface-306922_1280.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于注解的日志记录实战"/></a><div class="content"><a class="title" href="/2023/09/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/%E6%97%A5%E5%BF%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%AE%9E%E6%88%98/" title="基于注解的日志记录实战">基于注解的日志记录实战</a><time datetime="2023-09-01T04:20:00.000Z" title="发表于 2023-09-01 12:20:00">2023-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/" title="多线程实战与总结"><img src="https://img-wljslmz-1259086031.cos.ap-nanjing.myqcloud.com/picgo/202304250944799.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多线程实战与总结"/></a><div class="content"><a class="title" href="/2023/08/01/java%E6%8A%80%E6%9C%AF%E6%80%BB%E8%AE%A1/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%80%BB%E7%BB%93/" title="多线程实战与总结">多线程实战与总结</a><time datetime="2023-08-01T04:20:00.000Z" title="发表于 2023-08-01 12:20:00">2023-08-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 兜兜</div><div class="footer_custom_text">天使😇</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="2130489605" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
